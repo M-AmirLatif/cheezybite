@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Outer Black Circle Badge -->
+  <circle cx="50" cy="50" r="48" fill="#141414" stroke="#FFC20E" stroke-width="4" />
+  
+  <!-- White Inner Rim Arc -->
+  <path d="M18 40 A 36 36 0 0 1 82 40" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" />
+
+  <!-- Chef Character Inside Circle -->
+  <!-- Chef Hat -->
+  <path d="M36 26 C30 26 27 22 28 17 C29 11 36 10 39 12 C44 7 56 7 61 12 C64 10 71 11 72 17 C73 22 70 26 64 26 Z" fill="#FFFFFF" stroke="#141414" stroke-width="1.8" />
+  <path d="M36 26 L64 26 L62 33 L38 33 Z" fill="#FFFFFF" stroke="#141414" stroke-width="1.8" />
+  <line x1="40" y1="29.5" x2="60" y2="29.5" stroke="#FFC20E" stroke-width="2" />
+
+  <!-- Head / Face -->
+  <path d="M40 32 C40 28 60 28 60 32 L60 41 C60 47 55 51 50 51 C45 51 40 47 40 41 Z" fill="#FCD34D" />
+  <!-- Beard & Mustache -->
+  <path d="M39 34 C38 38 39 47 44 51 C47 53 53 53 56 51 C61 47 62 38 61 34 C59 38 56 40 50 40 C44 40 41 38 39 34 Z" fill="#1E1E1E" />
+  <path d="M43 42 C46 41 50 43 50 43 C50 43 54 41 57 42 C58 43 57 45 55 44.5 C52 44 50 45 50 45 C50 45 48 44 45 44.5 C43 45 42 43 43 42 Z" fill="#1E1E1E" />
+  <circle cx="45" cy="36" r="1.5" fill="#1E1E1E" />
+  <circle cx="55" cy="36" r="1.5" fill="#1E1E1E" />
+
+  <!-- Chef Yellow Jacket Coat -->
+  <path d="M32 55 C35 50 40 48 50 48 C60 48 65 50 68 55 L74 68 L26 68 Z" fill="#FFC20E" stroke="#141414" stroke-width="1.5" />
+  <circle cx="48" cy="54" r="1.2" fill="#141414" />
+  <circle cx="52" cy="54" r="1.2" fill="#141414" />
+  <circle cx="48" cy="60" r="1.2" fill="#141414" />
+  <circle cx="52" cy="60" r="1.2" fill="#141414" />
+
+  <!-- Food Tray -->
+  <ellipse cx="50" cy="65" rx="28" ry="4.5" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="1" />
+  <!-- Burger on Tray -->
+  <path d="M38 64 C38 59 47 59 47 64 Z" fill="#F59E0B" />
+  <rect x="37.5" y="64" width="10" height="2" rx="0.5" fill="#78350F" />
+  <!-- Drink with straw -->
+  <rect x="56" y="58" width="7" height="9" rx="1.5" fill="#EF4444" />
+  <line x1="59.5" y1="58" x2="62" y2="52" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+  <!-- French Fries -->
+  <path d="M48 61 L55 61 L54 66 L49 66 Z" fill="#DC2626" />
+  <line x1="50" y1="61" x2="50" y2="57" stroke="#FDE047" stroke-width="1.5" />
+  <line x1="52" y1="61" x2="52" y2="56" stroke="#FDE047" stroke-width="1.5" />
+  <line x1="54" y1="61" x2="54" y2="57.5" stroke="#FDE047" stroke-width="1.5" />
+
+  <!-- Bottom Script: Cheezy Bite -->
+  <text x="50" y="82" font-family="'Lilita One', cursive, sans-serif" font-weight="900" font-size="12" fill="#FFC20E" text-anchor="middle" letter-spacing="0.5">
+    Cheezy Bite
+  </text>
+  <text x="50" y="91" font-family="'Plus Jakarta Sans', sans-serif" font-style="italic" font-weight="800" font-size="6" fill="#FFFFFF" text-anchor="middle">
+    Lets Eat Together! Wah G Wah
+  </text>
+</svg>

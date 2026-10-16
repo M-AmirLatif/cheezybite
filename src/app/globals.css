@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --brand-yellow: #FFC20E;
+  --brand-yellow-hover: #E5AC00;
+  --brand-maroon: #8B1A1A;
+  --brand-maroon-dark: #630F0F;
+  --brand-maroon-light: #A52222;
+  --brand-cream: #FFFDF7;
+  --brand-cream-card: #FFFFFF;
+  --brand-cream-surface: #FFF6DC;
+  --brand-dark: #141414;
+  --brand-charcoal: #231815;
+  --brand-muted: #5C4E4B;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--brand-cream);
+  color: var(--brand-charcoal);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Display and Body Font utilities */
+.font-display {
+  font-family: var(--font-lilita), "Impact", sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+}
+
+/* Infinite Marquee Strip */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF5D9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8B1A1A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #630F0F;
+}
+
+/* Cheese Drip Divider SVG mask / pattern */
+.cheese-drip-top {
+  position: relative;
+}
+
+.cheese-drip-top::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background-image: radial-gradient(circle at 10px 0, #8B1A1A 10px, transparent 11px);
+  background-size: 20px 20px;
+}
+
+/* Glassmorphism Header */
+.glass-nav {
+  background: rgba(255, 253, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid rgba(139, 26, 26, 0.1);
+}
+
+/* Focus state accessible ring */
+*:focus-visible {
+  outline: 2px solid #8B1A1A;
+  outline-offset: 2px;
+}

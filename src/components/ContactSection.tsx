@@ -43,8 +43,8 @@ export function ContactSection() {
             </div>
 
             {/* Calling & WhatsApp Action Buttons */}
-            <div className="bg-white rounded-3xl p-6 border border-[#8B1A1A]/10 shadow-md space-y-3">
-              <h3 className="text-sm font-bold text-[#141414] uppercase tracking-wider mb-2">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#8B1A1A]/10 shadow-md space-y-3.5">
+              <h3 className="text-xs sm:text-sm font-extrabold text-[#141414] uppercase tracking-wider">
                 Order Directly By Phone / WhatsApp
               </h3>
 
@@ -52,19 +52,29 @@ export function ContactSection() {
                 {/* Phone 1 */}
                 <a
                   href={`tel:${RESTAURANT_INFO.phonePrimary}`}
-                  className="p-3 rounded-2xl bg-[#FFF5D9] hover:bg-[#FFEBB5] text-[#8B1A1A] text-xs font-bold flex items-center justify-center gap-2 border border-[#FFC20E]/40 transition-colors cursor-pointer"
+                  className="p-3 rounded-2xl bg-[#FFF5D9] hover:bg-[#FFEBB5] text-[#8B1A1A] flex items-center justify-center gap-2.5 border-2 border-[#FFC20E]/40 transition-all cursor-pointer group active:scale-98"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>{RESTAURANT_INFO.phonePrimary}</span>
+                  <span className="w-8 h-8 rounded-xl bg-[#8B1A1A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <Phone className="w-4 h-4 text-[#FFC20E]" />
+                  </span>
+                  <div className="text-left">
+                    <span className="block text-[10px] font-bold text-gray-500 uppercase tracking-wider">Call Primary</span>
+                    <span className="text-xs sm:text-sm font-black font-mono text-[#141414]">{RESTAURANT_INFO.phonePrimary}</span>
+                  </div>
                 </a>
 
                 {/* Phone 2 */}
                 <a
                   href={`tel:${RESTAURANT_INFO.phoneSecondary}`}
-                  className="p-3 rounded-2xl bg-[#FFF5D9] hover:bg-[#FFEBB5] text-[#8B1A1A] text-xs font-bold flex items-center justify-center gap-2 border border-[#FFC20E]/40 transition-colors cursor-pointer"
+                  className="p-3 rounded-2xl bg-[#FFF5D9] hover:bg-[#FFEBB5] text-[#8B1A1A] flex items-center justify-center gap-2.5 border-2 border-[#FFC20E]/40 transition-all cursor-pointer group active:scale-98"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>{RESTAURANT_INFO.phoneSecondary}</span>
+                  <span className="w-8 h-8 rounded-xl bg-[#8B1A1A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <Phone className="w-4 h-4 text-[#FFC20E]" />
+                  </span>
+                  <div className="text-left">
+                    <span className="block text-[10px] font-bold text-gray-500 uppercase tracking-wider">Call Secondary</span>
+                    <span className="text-xs sm:text-sm font-black font-mono text-[#141414]">{RESTAURANT_INFO.phoneSecondary}</span>
+                  </div>
                 </a>
               </div>
 
@@ -73,51 +83,55 @@ export function ContactSection() {
                 href={RESTAURANT_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors cursor-pointer"
+                className="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/25 transition-all cursor-pointer active:scale-98"
               >
-                <Send className="w-4 h-4 fill-white" />
-                <span>Chat on WhatsApp ({RESTAURANT_INFO.phonePrimary})</span>
+                <Send className="w-4 h-4 fill-white shrink-0" />
+                <span>Order on WhatsApp (0321-6610034)</span>
               </a>
             </div>
 
             {/* Hours Card */}
-            <div className="bg-white rounded-3xl p-6 border border-[#8B1A1A]/10 shadow-md">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#8B1A1A]/10 shadow-md">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-2xl bg-[#FFF5D9] text-[#8B1A1A] flex items-center justify-center shrink-0 border border-[#FFC20E]/40">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#141414]">Operating Schedule</h3>
+                  <h3 className="text-sm sm:text-base font-bold text-[#141414]">Operating Schedule</h3>
                   <p className="text-xs text-[#5C4E4B]">Open 7 Days a Week</p>
                 </div>
               </div>
 
-              <div className="space-y-2 text-xs divide-y divide-gray-100">
+              <div className="space-y-2.5 text-xs divide-y divide-gray-100">
                 <div className="flex justify-between items-center pt-2">
-                  <span className="font-medium text-gray-600">Monday – Sunday</span>
-                  <span className="font-bold text-[#8B1A1A]">11:00 AM – 3:00 AM</span>
+                  <span className="font-semibold text-gray-700">Monday – Sunday</span>
+                  <span className="font-extrabold text-[#8B1A1A]">11:00 AM – 3:00 AM</span>
                 </div>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="font-medium text-gray-600">Home Delivery Hours</span>
-                  <span className="font-bold text-emerald-700">11:00 AM – 3:00 AM (Late Night)</span>
+                <div className="flex justify-between items-center pt-2.5">
+                  <span className="font-semibold text-gray-700">Home Delivery Hours</span>
+                  <span className="font-extrabold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                    11:00 AM – 3:00 AM
+                  </span>
                 </div>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="font-medium text-gray-600">Free Home Delivery</span>
-                  <span className="font-bold text-[#141414]">Orders of Rs 700+</span>
+                <div className="flex justify-between items-center pt-2.5">
+                  <span className="font-semibold text-gray-700">Free Delivery</span>
+                  <span className="font-extrabold text-[#141414] bg-[#FFF5D9] px-2 py-0.5 rounded-md border border-[#FFC20E]/50">
+                    Orders of Rs 700+
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Restaurant Features Badges */}
-            <div className="flex flex-wrap gap-2">
+            {/* Restaurant Features Grid (Clean 2-column layout on all mobile screens) */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
               {RESTAURANT_INFO.features.map((feat, idx) => (
-                <span
+                <div
                   key={idx}
-                  className="px-3 py-1.5 rounded-full bg-white border border-[#8B1A1A]/15 text-xs font-semibold text-[#141414] shadow-sm flex items-center gap-1.5"
+                  className="p-2.5 sm:px-3 sm:py-2 rounded-xl bg-white border border-[#8B1A1A]/12 text-[11px] sm:text-xs font-bold text-[#141414] shadow-sm flex items-center gap-2"
                 >
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>{feat}</span>
-                </span>
+                  <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span className="leading-snug">{feat}</span>
+                </div>
               ))}
             </div>
           </div>

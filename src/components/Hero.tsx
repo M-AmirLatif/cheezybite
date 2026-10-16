@@ -97,7 +97,7 @@ export function Hero() {
                     : "bg-amber-100 text-amber-900 border border-amber-300"
                 }`}
               >
-                <Clock className="w-3.5 h-3.5 text-emerald-700" />
+                <Clock className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
                 <span>{status.statusText}</span>
               </div>
 
@@ -109,22 +109,22 @@ export function Hero() {
                   ))}
                 </div>
                 <span className="font-extrabold text-[#8B1A1A]">5.0</span>
-                <span className="text-[11px] text-[#5C4E4B] hidden sm:inline">(140+ Reviews)</span>
+                <span className="text-[11px] text-[#5C4E4B] font-semibold">(140+ Reviews)</span>
               </div>
 
               {/* Free Delivery Chip */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1A1A] text-[#FFF6DC] text-xs font-bold shadow-sm">
-                <Truck className="w-3.5 h-3.5 text-[#FFC20E]" />
+                <Truck className="w-3.5 h-3.5 text-[#FFC20E] shrink-0" />
                 <span>Free Delivery &gt; Rs 700</span>
               </div>
             </div>
 
             {/* Headline with Typewriter */}
-            <div className="space-y-2">
-              <span className="block text-sm sm:text-base md:text-lg font-extrabold tracking-wider text-[#8B1A1A] uppercase">
+            <div className="space-y-1.5 sm:space-y-2">
+              <span className="block text-xs sm:text-base md:text-lg font-black tracking-wider text-[#8B1A1A] uppercase">
                 Kasur&apos;s Ultimate Fast Food Craving 🍔
               </span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-display text-[#141414] leading-[1.08] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-display text-[#141414] leading-[1.12] sm:leading-[1.08] tracking-tight">
                 Fresh, Crispy &amp; Juicy{" "}
                 <span className="relative inline-block text-[#8B1A1A]">
                   <span className="text-[#8B1A1A] drop-shadow-sm">
@@ -138,27 +138,27 @@ export function Hero() {
             </div>
 
             {/* Subtext */}
-            <p className="text-base sm:text-lg text-[#5C4E4B] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+            <p className="text-sm sm:text-lg text-[#2E1E1C] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
               &quot;Lets Eat Together! Wah G Wah&quot; — Savor 100% pure beef smash burgers with crispy lacy edges, spicy injected broast, Chicago deep-dish pizzas, and loaded fries at Cinema Morr, Kasur. Dine-in, takeout, or delivered piping hot to your doorstep!
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1 sm:pt-2">
               <a
                 href={RESTAURANT_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-base flex items-center justify-center gap-2.5 shadow-xl shadow-[#25D366]/25 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer border-2 border-[#FFFDF7]"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-[#25D366]/25 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer border-2 border-[#FFFDF7]"
               >
-                <Send className="w-5 h-5 fill-white" />
+                <Send className="w-4 h-4 sm:w-5 sm:h-5 fill-white shrink-0" />
                 <span>Order on WhatsApp</span>
               </a>
 
               <Link
                 href="/menu"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#8B1A1A] hover:bg-[#630F0F] text-[#FFFDF7] font-extrabold text-base flex items-center justify-center gap-2.5 shadow-xl shadow-[#8B1A1A]/20 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer border-2 border-[#FFC20E]"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#8B1A1A] hover:bg-[#630F0F] text-[#FFFDF7] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-[#8B1A1A]/20 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer border-2 border-[#FFC20E]"
               >
-                <Flame className="w-5 h-5 text-[#FFC20E]" />
+                <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-[#FFC20E] shrink-0" />
                 <span>Explore Full Menu</span>
               </Link>
             </div>

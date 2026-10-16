@@ -123,27 +123,32 @@ export function Footer() {
         </div>
 
         {/* Sales Demo Attribution & CTA */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#FFF6DC]/80">
-          <p className="text-center md:text-left">
-            &copy; 2026 Cheezy Bite Kasur. &quot;Lets Eat Together! Wah G Wah&quot;. All rights reserved.
-          </p>
+        <div className="pt-8 flex flex-col items-center justify-between gap-5 text-xs text-[#FFF6DC]/90">
+          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:px-6 sm:py-3.5 rounded-2xl bg-[#141414] border-2 border-[#FFC20E]/40 shadow-2xl">
+            <div className="flex items-center gap-2 text-white text-center sm:text-left">
+              <span className="w-7 h-7 rounded-full bg-[#8B1A1A] flex items-center justify-center shrink-0 border border-[#FFC20E]/50">
+                <Heart className="w-3.5 h-3.5 text-[#FFC20E] fill-[#FFC20E]" />
+              </span>
+              <div>
+                <p className="text-[11px] text-white/70 uppercase tracking-wider font-bold">Restaurant Demo Site</p>
+                <p className="text-xs sm:text-sm font-extrabold text-white">Built by Senior Product Engineer</p>
+              </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 bg-black/30 px-4 py-2 rounded-2xl border border-white/10">
-            <span className="flex items-center gap-1.5 text-white/90">
-              <Heart className="w-3.5 h-3.5 text-[#FFC20E] fill-[#FFC20E]" />
-              Website demo by <strong className="text-[#FFC20E]">Senior Product Engineer</strong>
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
             <a
               href="https://wa.me/923216610034?text=Hi!%20I%20saw%20the%20Cheezy%20Bite%20website%20demo%20and%20want%20a%20similar%20high-converting%20website%20for%20my%20business."
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#FFC20E] font-bold hover:underline flex items-center gap-1 cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#FFC20E] hover:bg-[#E5AC00] text-[#730C0C] font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-all cursor-pointer"
             >
-              <span>Want this website for your business? Contact me</span>
-              <ExternalLink className="w-3 h-3" />
+              <span>Get a Website Like This</span>
+              <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
             </a>
           </div>
+
+          <p className="text-center text-[11px] text-[#FFF6DC]/70">
+            &copy; 2026 Cheezy Bite Kasur. &quot;Lets Eat Together! Wah G Wah&quot;. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

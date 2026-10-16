@@ -155,7 +155,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FFFDF7] text-[#231815] selection:bg-[#FFC20E] selection:text-[#730C0C]">
+      <body className="min-h-screen flex flex-col pb-16 md:pb-0 bg-[#FFFDF7] text-[#231815] selection:bg-[#FFC20E] selection:text-[#730C0C]">
         {children}
         <CartDrawer />
         <CartToast />

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/lib/cartStore";
 import { getRestaurantStatus } from "@/lib/restaurantStatus";
-import { Menu, X, ShoppingBag, Phone, Send, Sparkles } from "lucide-react";
+import { Menu, X, ShoppingBag, Phone, Send, Sparkles, Share2, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RESTAURANT_INFO } from "@/data/menu";
 
@@ -22,8 +22,47 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [status, setStatus] = useState({ isOpen: true, badgeLabel: "Open Now" });
-  const { getTotalCount, openCart } = useCartStore();
+  const [copied, setCopied] = useState(false);
+  const { getTotalCount, openCart, showToast } = useCartStore();
   const cartCount = getTotalCount();
+
+  const handleShare = async () => {
+    const shareUrl = typeof window !== "undefined" ? window.location.href : "https://cheezybite.pk";
+    const shareData = {
+      title: "Cheezy Bite | Best Fast Food in Kasur — Wah G Wah!",
+      text: "Check out Cheezy Bite Kasur! Savor Beef Smash Burgers, Injected Broast & Deep Dish Pizza 🧀🍔",
+      url: shareUrl,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch {
+        // Fall through to clipboard if user dismissed or cancelled
+      }
+    }
+
+    if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        showToast("Link copied to clipboard! Paste in any chat to view the preview 🧀");
+        setTimeout(() => setCopied(false), 2500);
+        return;
+      } catch {
+        // Fall through
+      }
+    }
+
+    // Direct WhatsApp share fallback
+    window.open(
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(
+        `${shareData.text} ${shareData.url}`
+      )}`,
+      "_blank"
+    );
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,6 +160,23 @@ export function Navbar() {
                 )}
               </button>
 
+              {/* Share Website Link Button */}
+              <button
+                onClick={handleShare}
+                className="relative p-2.5 rounded-xl bg-white hover:bg-[#FFF5D9] text-[#8B1A1A] transition-all transform active:scale-95 cursor-pointer flex items-center gap-1.5 border border-[#8B1A1A]/15 shadow-sm"
+                aria-label="Share Cheezy Bite link on WhatsApp or chat"
+                title="Share link on WhatsApp or chat"
+              >
+                {copied ? (
+                  <Check className="w-4 h-4 text-emerald-600" />
+                ) : (
+                  <Share2 className="w-4 h-4 text-[#8B1A1A]" />
+                )}
+                <span className="hidden xl:inline text-xs font-bold text-[#141414]">
+                  {copied ? "Copied!" : "Share"}
+                </span>
+              </button>
+
               {/* WhatsApp CTA Button */}
               <a
                 href={RESTAURANT_INFO.whatsappUrl}
@@ -194,8 +250,19 @@ export function Navbar() {
                 ))}
               </div>
 
-              {/* Quick Contacts */}
+              {/* Quick Contacts & Sharing */}
               <div className="pt-2 border-t border-[#8B1A1A]/10 flex flex-col gap-2">
+                <button
+                  onClick={handleShare}
+                  className="flex items-center justify-center gap-2 p-3 rounded-xl bg-white border border-[#FFC20E] text-[#8B1A1A] text-xs font-bold cursor-pointer hover:bg-[#FFF5D9] transition-colors"
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4 text-emerald-600" />
+                  ) : (
+                    <Share2 className="w-4 h-4 text-[#8B1A1A]" />
+                  )}
+                  <span>{copied ? "Link Copied to Clipboard!" : "Share Link to WhatsApp / Chat"}</span>
+                </button>
                 <a
                   href={`tel:${RESTAURANT_INFO.phonePrimary}`}
                   className="flex items-center justify-center gap-2 p-3 rounded-xl bg-[#8B1A1A] text-white text-xs font-bold cursor-pointer"

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Plus, Star, Flame, Sparkles, Check } from "lucide-react";
+import { Plus, Star, Flame, Sparkles, Check, Share2 } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
 import { MENU_ITEMS, MenuItem } from "@/data/menu";
 
@@ -18,9 +18,36 @@ const SIGNATURE_IDS = [
 ];
 
 export function BestSellers() {
-  const { addItem } = useCartStore();
+  const { addItem, showToast } = useCartStore();
   const [selectedSizes, setSelectedSizes] = useState<Record<string, string>>({});
   const [addedItemAnim, setAddedItemAnim] = useState<string | null>(null);
+
+  const handleShareItem = async (item: MenuItem, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const url = "https://cheezybite.pk";
+    const text = `Check out ${item.name} at Cheezy Bite Kasur! 🧀 ${item.description} — Only Rs ${item.price}:`;
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: `${item.name} | Cheezy Bite Kasur`, text, url });
+        return;
+      } catch {
+        // Fallback
+      }
+    }
+    
+    if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(`${text} ${url}`);
+        showToast(`Copied ${item.name} link! Share it in any chat 🧀`);
+        return;
+      } catch {
+        // Fallback
+      }
+    }
+
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${url}`)}`, "_blank");
+  };
 
   const signatureItems = MENU_ITEMS.filter((item) =>
     SIGNATURE_IDS.includes(item.id)
@@ -101,6 +128,16 @@ export function BestSellers() {
                         {item.badge}
                       </div>
                     )}
+
+                    {/* Share Button */}
+                    <button
+                      onClick={(e) => handleShareItem(item, e)}
+                      className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#8B1A1A] flex items-center justify-center shadow-md active:scale-95 transition-all cursor-pointer border border-[#8B1A1A]/10"
+                      title="Share link with preview on chat"
+                      aria-label={`Share ${item.name} link`}
+                    >
+                      <Share2 className="w-3.5 h-3.5 text-[#8B1A1A]" />
+                    </button>
 
                     {/* Quality Star Rating */}
                     <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-0.5 rounded-full text-xs font-bold flex items-center gap-1 border border-white/20">

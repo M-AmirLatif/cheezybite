@@ -10,6 +10,32 @@ export const metadata: Metadata = {
   title: "Full Menu & Deals | Cheezy Bite Kasur",
   description:
     "Explore the complete Cheezy Bite menu in Kasur: Beef Smash Burgers, Injected Broast, Chicago Deep Dish Pizza, Shawarma, Wraps, Loaded Fries & Combo Deals. Free Home Delivery above Rs 700.",
+  openGraph: {
+    title: "Cheezy Bite Full Menu & Deals | Wah G Wah!",
+    description:
+      "Explore the complete Cheezy Bite menu in Kasur: Beef Smash Burgers, Injected Broast, Chicago Deep Dish Pizza & Value Deals. Free Delivery above Rs 700.",
+    url: "https://cheezybite.pk/menu",
+    siteName: "Cheezy Bite",
+    locale: "en_PK",
+    type: "website",
+    images: [
+      {
+        url: "https://cheezybite.pk/images/og-image-menu.jpg",
+        secureUrl: "https://cheezybite.pk/images/og-image-menu.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Cheezy Bite Kasur Full Feast Menu & Combo Deals",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cheezy Bite Full Menu & Deals | Kasur",
+    description:
+      "Beef Smash Burgers, Injected Broast, Chicago Deep Dish Pizza & Value Deals in Kasur.",
+    images: ["https://cheezybite.pk/images/og-image-menu.jpg"],
+  },
 };
 
 export default function MenuPage() {

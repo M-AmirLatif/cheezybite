@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cheezybite.pk"),
-  title: "Cheezy Bite | Best Fast Food in Kasur — Smash Burgers, Pizza & Broast",
+  title: "Cheezy Bite | Best Fast Food in Kasur - Smash Burgers, Pizza & Broast",
   description:
     "Lets Eat Together! Wah G Wah. Savor juicy Beef Smash Burgers, Crispy Injected Broast, Chicago Deep Dish Pizza & Loaded Fries in Kasur. Dine-in, Takeaway & Free Delivery above Rs 700. Open daily 11 AM - 3 AM.",
   keywords: [
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Cheezy Bite | Kasur's Ultimate Fast Food Hub",
+    title: "Cheezy Bite | Best Fast Food in Kasur - Wah G Wah!",
     description:
       "Lets Eat Together! Wah G Wah. Authentic Beef Smash Burgers, Injected Broast & Cheesy Pizzas in Kasur. Open daily 11 AM to 3 AM. Free Delivery over Rs 700.",
     url: "https://cheezybite.pk",
@@ -66,10 +66,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-food.jpg",
+        url: "https://cheezybite.pk/images/og-image.jpg",
+        secureUrl: "https://cheezybite.pk/images/og-image.jpg",
         width: 1200,
-        height: 675,
-        alt: "Cheezy Bite Gourmet Fast Food Spread",
+        height: 630,
+        type: "image/jpeg",
+        alt: "Cheezy Bite Gourmet Fast Food Spread — Smash Burgers, Pizza & Broast in Kasur",
       },
     ],
   },
@@ -77,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cheezy Bite Kasur | Wah G Wah!",
     description: "Smash Burgers, Injected Broast, Chicago Deep Dish Pizza & Late Night Delivery.",
-    images: ["/images/hero-food.jpg"],
+    images: ["https://cheezybite.pk/images/og-image.jpg"],
   },
 };
 
@@ -150,6 +152,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lilita.variable} ${plusJakarta.variable}`}>
       <head>
+        {/* Chat / WhatsApp / Social Crawlers Static Fallbacks */}
+        <meta property="og:image" content="https://cheezybite.pk/images/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://cheezybite.pk/images/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Cheezy Bite Kasur - Smash Burgers, Injected Broast & Deep Dish Pizza" />
+        <meta name="twitter:image" content="https://cheezybite.pk/images/og-image.jpg" />
+        <link rel="image_src" href="https://cheezybite.pk/images/og-image.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

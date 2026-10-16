@@ -3,13 +3,40 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Tag, Check, Users, ShoppingBag, Sparkles } from "lucide-react";
+import { Tag, Check, Users, ShoppingBag, Sparkles, Share2 } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
 import { DEALS, DealItem } from "@/data/menu";
 
 export function DealsSection() {
-  const { addItem } = useCartStore();
+  const { addItem, showToast } = useCartStore();
   const [addedDealId, setAddedDealId] = useState<string | null>(null);
+
+  const handleShareDeal = async (deal: DealItem, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const url = "https://cheezybite.pk/#deals";
+    const text = `Check out ${deal.title} at Cheezy Bite Kasur! 🔥 ${deal.description} — Only Rs ${deal.price}:`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: `${deal.title} | Cheezy Bite Kasur`, text, url });
+        return;
+      } catch {
+        // Fallback
+      }
+    }
+
+    if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(`${text} ${url}`);
+        showToast(`Copied ${deal.title} link! Share it in any chat 🧀`);
+        return;
+      } catch {
+        // Fallback
+      }
+    }
+
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${url}`)}`, "_blank");
+  };
 
   const handleAddDeal = (deal: DealItem) => {
     addItem({
@@ -116,24 +143,34 @@ export function DealsSection() {
                     </span>
                   </div>
 
-                  <button
-                    onClick={() => handleAddDeal(deal)}
-                    className={`w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md active:scale-95 ${
-                      isAdded
-                        ? "bg-emerald-600 text-white"
-                        : "bg-[#8B1A1A] hover:bg-[#630F0F] text-[#FFFDF7]"
-                    }`}
-                  >
-                    {isAdded ? (
-                      <>
-                        <Check className="w-4 h-4" /> Added to Feast Bag!
-                      </>
-                    ) : (
-                      <>
-                        <ShoppingBag className="w-4 h-4 text-[#FFC20E]" /> Order This Deal
-                      </>
-                    )}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleAddDeal(deal)}
+                      className={`flex-1 py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md active:scale-95 ${
+                        isAdded
+                          ? "bg-emerald-600 text-white"
+                          : "bg-[#8B1A1A] hover:bg-[#630F0F] text-[#FFFDF7]"
+                      }`}
+                    >
+                      {isAdded ? (
+                        <>
+                          <Check className="w-4 h-4" /> Added to Feast Bag!
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingBag className="w-4 h-4 text-[#FFC20E]" /> Order This Deal
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={(e) => handleShareDeal(deal, e)}
+                      className="p-3 rounded-xl bg-white hover:bg-[#FFF5D9] text-[#8B1A1A] border border-[#8B1A1A]/20 shadow-sm active:scale-95 transition-all cursor-pointer"
+                      title="Share deal link on chat"
+                      aria-label={`Share ${deal.title} on chat`}
+                    >
+                      <Share2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             );

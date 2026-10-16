@@ -196,7 +196,7 @@ export const useCartStore = create<CartStore>()(
           message += `*Customer Note:* Please share delivery address.\n\n`;
         }
 
-        message += `_Sent via Cheezy Bite Official Website_ 🌟`;
+        message += `_Sent via Cheezy Bite Official Website: https://cheezybite.pk_ 🌟`;
 
         return `https://wa.me/${RESTAURANT_INFO.whatsappNumber}?text=${encodeURIComponent(
           message

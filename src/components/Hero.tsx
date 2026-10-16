@@ -48,7 +48,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] sm:min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-gradient-to-b from-[#FFF5D9]/80 via-[#FFFDF7] to-[#FFFDF7]"
+      className="relative pt-20 sm:pt-24 pb-8 sm:pb-16 overflow-hidden bg-gradient-to-b from-[#FFF5D9]/80 via-[#FFFDF7] to-[#FFFDF7]"
       aria-label="Hero Introduction"
     >
       {/* Decorative Cheese Drip / Radiant Glow Backdrops */}
@@ -56,18 +56,18 @@ export function Hero() {
       <div className="absolute top-40 right-10 w-[300px] h-[300px] bg-[#8B1A1A]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
           {/* Left Column: Copy, Typing Headline & CTAs */}
           <motion.div
-            initial={isReducedMotion ? {} : { opacity: 0, y: 30 }}
+            initial={isReducedMotion ? {} : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-7 space-y-6 text-center lg:text-left pt-2 lg:pt-0"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left pt-1 lg:pt-0"
           >
             {/* Official Mascot Badge & Tagline */}
-            <div className="flex items-center justify-center lg:justify-start gap-3 mb-2">
+            <div className="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
               <div
-                className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#FFC20E] shadow-md overflow-hidden bg-[#141414] shrink-0 hover:scale-105 transition-transform"
+                className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#FFC20E] shadow-md overflow-hidden bg-[#141414] shrink-0 hover:scale-105 transition-transform"
                 style={{ position: "relative" }}
               >
                 <Image
@@ -78,50 +78,46 @@ export function Hero() {
                 />
               </div>
               <div className="text-left">
-                <span className="block text-xs font-black uppercase tracking-wider text-[#8B1A1A]">
+                <span className="block text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#8B1A1A]">
                   Official Restaurant • Cinema Morr, Kasur
                 </span>
-                <span className="text-xs font-extrabold text-[#141414] italic">
+                <span className="text-xs sm:text-sm font-extrabold text-[#141414] italic">
                   &ldquo;Lets Eat Together! Wah G Wah&rdquo;
                 </span>
               </div>
             </div>
 
-            {/* Badges Bar */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5">
+            {/* Badges Bar (Compact & Balanced on Mobile) */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2.5">
               {/* Live Hours Badge */}
               <div
-                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold shadow-sm ${
+                className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold shadow-sm ${
                   status.isOpen
                     ? "bg-emerald-100 text-emerald-900 border border-emerald-300"
                     : "bg-amber-100 text-amber-900 border border-amber-300"
                 }`}
               >
-                <Clock className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                <span>{status.statusText}</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span>{status.badgeLabel} • Closes 3:00 AM</span>
               </div>
 
               {/* 5.0 Google Rating Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#FFC20E] text-xs font-bold text-[#141414] shadow-sm">
-                <div className="flex items-center text-[#FFC20E]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-[#FFC20E]" />
-                  ))}
-                </div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white border border-[#FFC20E] text-[11px] sm:text-xs font-bold text-[#141414] shadow-sm">
+                <Star className="w-3 h-3 fill-[#FFC20E] text-[#FFC20E] shrink-0" />
                 <span className="font-extrabold text-[#8B1A1A]">5.0</span>
-                <span className="text-[11px] text-[#5C4E4B] font-semibold">(140+ Reviews)</span>
+                <span className="text-[10px] sm:text-[11px] text-[#5C4E4B] font-semibold">(140+ Reviews)</span>
               </div>
 
               {/* Free Delivery Chip */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1A1A] text-[#FFF6DC] text-xs font-bold shadow-sm">
-                <Truck className="w-3.5 h-3.5 text-[#FFC20E] shrink-0" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#8B1A1A] text-[#FFF6DC] text-[11px] sm:text-xs font-bold shadow-sm">
+                <Truck className="w-3 h-3 text-[#FFC20E] shrink-0" />
                 <span>Free Delivery &gt; Rs 700</span>
               </div>
             </div>
 
             {/* Headline with Typewriter */}
-            <div className="space-y-1.5 sm:space-y-2">
-              <span className="block text-xs sm:text-base md:text-lg font-black tracking-wider text-[#8B1A1A] uppercase">
+            <div className="space-y-1 sm:space-y-2">
+              <span className="block text-[11px] sm:text-sm md:text-base font-black tracking-wider text-[#8B1A1A] uppercase">
                 Kasur&apos;s Ultimate Fast Food Craving 🍔
               </span>
               <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-display text-[#141414] leading-[1.12] sm:leading-[1.08] tracking-tight">
@@ -138,45 +134,50 @@ export function Hero() {
             </div>
 
             {/* Subtext */}
-            <p className="text-sm sm:text-lg text-[#2E1E1C] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
-              &quot;Lets Eat Together! Wah G Wah&quot; — Savor 100% pure beef smash burgers with crispy lacy edges, spicy injected broast, Chicago deep-dish pizzas, and loaded fries at Cinema Morr, Kasur. Dine-in, takeout, or delivered piping hot to your doorstep!
+            <p className="text-xs sm:text-base md:text-lg text-[#2E1E1C] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+              <span className="sm:hidden">
+                Kasur&apos;s home of juicy beef smash burgers, spicy injected broast, Chicago deep-dish pizzas &amp; loaded fries. Delivered piping hot till 3:00 AM!
+              </span>
+              <span className="hidden sm:inline">
+                &quot;Lets Eat Together! Wah G Wah&quot; — Savor 100% pure beef smash burgers with crispy lacy edges, spicy injected broast, Chicago deep-dish pizzas, and loaded fries at Cinema Morr, Kasur. Dine-in, takeout, or delivered piping hot to your doorstep!
+              </span>
             </p>
 
-            {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1 sm:pt-2">
+            {/* Primary Action Buttons (2-Column Grid on Mobile for compact height) */}
+            <div className="grid grid-cols-2 sm:flex items-center justify-center lg:justify-start gap-2.5 pt-1 sm:pt-2">
               <a
                 href={RESTAURANT_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-[#25D366]/25 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer border-2 border-[#FFFDF7]"
+                className="w-full sm:w-auto px-4 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-xs sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/25 transition-all active:scale-95 cursor-pointer border border-white/20"
               >
-                <Send className="w-4 h-4 sm:w-5 sm:h-5 fill-white shrink-0" />
-                <span>Order on WhatsApp</span>
+                <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />
+                <span>WhatsApp</span>
               </a>
 
               <Link
                 href="/menu"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#8B1A1A] hover:bg-[#630F0F] text-[#FFFDF7] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-[#8B1A1A]/20 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer border-2 border-[#FFC20E]"
+                className="w-full sm:w-auto px-4 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-[#8B1A1A] hover:bg-[#630F0F] text-[#FFFDF7] font-extrabold text-xs sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-[#8B1A1A]/20 transition-all active:scale-95 cursor-pointer border border-[#FFC20E]/40"
               >
-                <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-[#FFC20E] shrink-0" />
-                <span>Explore Full Menu</span>
+                <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFC20E] shrink-0" />
+                <span>Explore Menu</span>
               </Link>
             </div>
 
-            {/* Quick Contact Line */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 text-xs font-bold text-[#5C4E4B] pt-1">
-              <span className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-[#8B1A1A]" />
-                Direct Order:{" "}
+            {/* Quick Contact Line (Unified Single-Line Badge) */}
+            <div className="flex items-center justify-center lg:justify-start pt-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 border border-[#8B1A1A]/15 text-[11px] sm:text-xs font-bold text-[#5C4E4B] shadow-sm">
+                <Phone className="w-3.5 h-3.5 text-[#8B1A1A] shrink-0" />
+                <span>Direct Order:</span>
                 <a
                   href={`tel:${RESTAURANT_INFO.phonePrimary}`}
-                  className="text-[#8B1A1A] hover:underline"
+                  className="text-[#8B1A1A] font-black hover:underline font-mono"
                 >
                   {RESTAURANT_INFO.phonePrimary}
                 </a>
-              </span>
-              <span>•</span>
-              <span>Cinema Morr, Kasur</span>
+                <span className="text-gray-300">•</span>
+                <span className="text-gray-600">Cinema Morr, Kasur</span>
+              </div>
             </div>
           </motion.div>
 

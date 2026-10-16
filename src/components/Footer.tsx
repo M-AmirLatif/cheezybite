@@ -18,7 +18,7 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <div className="relative w-48 h-12" style={{ position: "relative" }}>
                 <Image
-                  src="/logo.svg"
+                  src="/logo-white.svg"
                   alt="Cheezy Bite Logo"
                   fill
                   className="object-contain"

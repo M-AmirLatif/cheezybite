@@ -46,13 +46,13 @@ export function BestSellers() {
   };
 
   return (
-    <section id="signatures" className="py-20 bg-[#FFFDF7] relative overflow-hidden">
+    <section id="signatures" className="py-8 sm:py-16 md:py-20 bg-[#FFFDF7] relative overflow-hidden">
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#FFC20E]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 space-y-2 sm:space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFF5D9] border border-[#FFC20E] text-xs font-black text-[#8B1A1A] uppercase tracking-wider">
             <Flame className="w-3.5 h-3.5 text-[#FFC20E] fill-[#FFC20E]" />
             <span>Kasur&apos;s Most Wanted</span>

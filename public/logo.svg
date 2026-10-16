@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none" width="100%" height="100%">
   <defs>
     <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#000" flood-opacity="0.35" />
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1" flood-color="#000" flood-opacity="0.25" />
     </filter>
-    <linearGradient id="yellowBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFC20E" />
-      <stop offset="100%" stop-color="#E5A700" />
-    </linearGradient>
   </defs>
 
   <!-- Left: Black Circular Mascot Emblem (Matches the official Cheezy Bite menu badge) -->
@@ -123,8 +119,8 @@
       <path d="M12 2 C12 6 11 8 12.5 10 C13.5 8 14 6 14 2 Z" fill="#141414" />
     </g>
 
-    <!-- Tagline underneath in authentic script style -->
-    <text x="102" y="74" font-family="'Plus Jakarta Sans', cursive, sans-serif" font-style="italic" font-weight="800" font-size="9.5" fill="#8B1A1A" letter-spacing="0.4">
+    <!-- Tagline underneath in authentic script style with bold contrast -->
+    <text x="100" y="74" font-family="'Plus Jakarta Sans', cursive, sans-serif" font-style="italic" font-weight="900" font-size="10" fill="#8B1A1A" letter-spacing="0.4">
       Lets Eat Together! Wah G Wah
     </text>
   </g>

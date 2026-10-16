@@ -5,10 +5,10 @@ import { RESTAURANT_INFO } from "@/data/menu";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-[#FFFDF7] relative">
+    <section id="contact" className="py-8 sm:py-16 md:py-20 bg-[#FFFDF7] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 space-y-2 sm:space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF5D9] border border-[#FFC20E] text-xs font-black text-[#8B1A1A] uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5 text-[#FFC20E] fill-[#FFC20E]" />
             <span>Visit Us In Kasur</span>
@@ -25,7 +25,7 @@ export function ContactSection() {
           {/* Left Column: Details, Phone Numbers & Hours */}
           <div className="lg:col-span-5 space-y-6">
             {/* Address Card */}
-            <div className="bg-white rounded-3xl p-6 border border-[#8B1A1A]/10 shadow-md space-y-3">
+            <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#8B1A1A]/10 shadow-md space-y-3">
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-2xl bg-[#FFF5D9] text-[#8B1A1A] flex items-center justify-center shrink-0 border border-[#FFC20E]/40">
                   <MapPin className="w-5 h-5" />
@@ -43,22 +43,49 @@ export function ContactSection() {
             </div>
 
             {/* Calling & WhatsApp Action Buttons */}
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#8B1A1A]/10 shadow-md space-y-3.5">
-              <h3 className="text-xs sm:text-sm font-extrabold text-[#141414] uppercase tracking-wider">
-                Order Directly By Phone / WhatsApp
-              </h3>
+            <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#8B1A1A]/10 shadow-md space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs sm:text-sm font-extrabold text-[#141414] uppercase tracking-wider">
+                  Direct Order &amp; Delivery
+                </h3>
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  Live Hotline
+                </span>
+              </div>
 
+              {/* High-Impact WhatsApp Primary Button */}
+              <a
+                href={RESTAURANT_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full p-4 rounded-2xl bg-gradient-to-r from-[#22c55e] to-[#16a34a] hover:from-[#16a34a] hover:to-[#15803d] text-white flex items-center justify-between shadow-lg shadow-emerald-500/25 active:scale-[0.99] transition-all cursor-pointer border border-emerald-400/30 group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Send className="w-5 h-5 fill-white text-white" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[11px] uppercase tracking-wider font-extrabold text-emerald-100">Fast WhatsApp Order</p>
+                    <p className="text-sm font-black text-white font-mono">{RESTAURANT_INFO.phonePrimary}</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1.5 rounded-xl bg-white text-emerald-800 text-xs font-black uppercase tracking-wider shrink-0 shadow-sm group-hover:bg-emerald-50 transition-colors">
+                  Chat &rarr;
+                </span>
+              </a>
+
+              {/* Two Direct Calling Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {/* Phone 1 */}
                 <a
                   href={`tel:${RESTAURANT_INFO.phonePrimary}`}
-                  className="p-3 rounded-2xl bg-[#FFF5D9] hover:bg-[#FFEBB5] text-[#8B1A1A] flex items-center justify-center gap-2.5 border-2 border-[#FFC20E]/40 transition-all cursor-pointer group active:scale-98"
+                  className="p-3.5 rounded-2xl bg-[#FFFDF7] hover:bg-[#FFF5D9] text-[#141414] flex items-center gap-3 border-2 border-[#8B1A1A]/15 hover:border-[#8B1A1A] transition-all cursor-pointer group active:scale-98 shadow-sm"
                 >
-                  <span className="w-8 h-8 rounded-xl bg-[#8B1A1A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                  <span className="w-9 h-9 rounded-xl bg-[#8B1A1A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                     <Phone className="w-4 h-4 text-[#FFC20E]" />
                   </span>
                   <div className="text-left">
-                    <span className="block text-[10px] font-bold text-gray-500 uppercase tracking-wider">Call Primary</span>
+                    <span className="block text-[10px] font-black uppercase tracking-wider text-[#8B1A1A]">Line 1 (WhatsApp)</span>
                     <span className="text-xs sm:text-sm font-black font-mono text-[#141414]">{RESTAURANT_INFO.phonePrimary}</span>
                   </div>
                 </a>
@@ -66,28 +93,17 @@ export function ContactSection() {
                 {/* Phone 2 */}
                 <a
                   href={`tel:${RESTAURANT_INFO.phoneSecondary}`}
-                  className="p-3 rounded-2xl bg-[#FFF5D9] hover:bg-[#FFEBB5] text-[#8B1A1A] flex items-center justify-center gap-2.5 border-2 border-[#FFC20E]/40 transition-all cursor-pointer group active:scale-98"
+                  className="p-3.5 rounded-2xl bg-[#FFFDF7] hover:bg-[#FFF5D9] text-[#141414] flex items-center gap-3 border-2 border-[#8B1A1A]/15 hover:border-[#8B1A1A] transition-all cursor-pointer group active:scale-98 shadow-sm"
                 >
-                  <span className="w-8 h-8 rounded-xl bg-[#8B1A1A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                  <span className="w-9 h-9 rounded-xl bg-[#8B1A1A] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
                     <Phone className="w-4 h-4 text-[#FFC20E]" />
                   </span>
                   <div className="text-left">
-                    <span className="block text-[10px] font-bold text-gray-500 uppercase tracking-wider">Call Secondary</span>
+                    <span className="block text-[10px] font-black uppercase tracking-wider text-[#8B1A1A]">Line 2 (PTCL / Direct)</span>
                     <span className="text-xs sm:text-sm font-black font-mono text-[#141414]">{RESTAURANT_INFO.phoneSecondary}</span>
                   </div>
                 </a>
               </div>
-
-              {/* Main WhatsApp Button */}
-              <a
-                href={RESTAURANT_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/25 transition-all cursor-pointer active:scale-98"
-              >
-                <Send className="w-4 h-4 fill-white shrink-0" />
-                <span>Order on WhatsApp (0321-6610034)</span>
-              </a>
             </div>
 
             {/* Hours Card */}

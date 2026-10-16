@@ -55,10 +55,10 @@ const STATS = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-20 bg-[#FFFDF7] relative overflow-hidden">
+    <section className="py-8 sm:py-16 md:py-20 bg-[#FFFDF7] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 space-y-2 sm:space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF5D9] border border-[#FFC20E] text-xs font-black text-[#8B1A1A] uppercase tracking-wider">
             <Award className="w-3.5 h-3.5 text-[#FFC20E] fill-[#FFC20E]" />
             <span>The Cheezy Bite Promise</span>

@@ -8,6 +8,7 @@ import { getRestaurantStatus } from "@/lib/restaurantStatus";
 import { Menu, X, ShoppingBag, Phone, Send, Sparkles, Share2, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RESTAURANT_INFO } from "@/data/menu";
+import { SITE_URL } from "@/lib/siteUrl";
 
 const NAV_LINKS = [
   { name: "Home", href: "/#home" },
@@ -27,7 +28,7 @@ export function Navbar() {
   const cartCount = getTotalCount();
 
   const handleShare = async () => {
-    const shareUrl = typeof window !== "undefined" ? window.location.href : "https://cheezybite.pk";
+    const shareUrl = typeof window !== "undefined" ? window.location.href : SITE_URL;
     const shareData = {
       title: "Cheezy Bite | Best Fast Food in Kasur — Wah G Wah!",
       text: "Check out Cheezy Bite Kasur! Savor Beef Smash Burgers, Injected Broast & Deep Dish Pizza 🧀🍔",

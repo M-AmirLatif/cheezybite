@@ -5,6 +5,7 @@ import { DealsSection } from "@/components/DealsSection";
 import { Footer } from "@/components/Footer";
 import { Utensils, Sparkles, Clock, Truck } from "lucide-react";
 import { RESTAURANT_INFO } from "@/data/menu";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export const metadata: Metadata = {
   title: "Full Menu & Deals | Cheezy Bite Kasur",
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
     title: "Cheezy Bite Full Menu & Deals | Wah G Wah!",
     description:
       "Explore the complete Cheezy Bite menu in Kasur: Beef Smash Burgers, Injected Broast, Chicago Deep Dish Pizza & Value Deals. Free Delivery above Rs 700.",
-    url: "https://cheezybite.pk/menu",
+    url: `${SITE_URL}/menu`,
     siteName: "Cheezy Bite",
     locale: "en_PK",
     type: "website",
     images: [
       {
-        url: "https://cheezybite.pk/images/og-image-menu.jpg",
-        secureUrl: "https://cheezybite.pk/images/og-image-menu.jpg",
+        url: `${SITE_URL}/images/og-image-menu.jpg`,
+        secureUrl: `${SITE_URL}/images/og-image-menu.jpg`,
         width: 1200,
         height: 630,
         type: "image/jpeg",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     title: "Cheezy Bite Full Menu & Deals | Kasur",
     description:
       "Beef Smash Burgers, Injected Broast, Chicago Deep Dish Pizza & Value Deals in Kasur.",
-    images: ["https://cheezybite.pk/images/og-image-menu.jpg"],
+    images: [`${SITE_URL}/images/og-image-menu.jpg`],
   },
 };
 

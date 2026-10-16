@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Plus, Star, Flame, Sparkles, Check, Share2 } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
 import { MENU_ITEMS, MenuItem } from "@/data/menu";
+import { SITE_URL } from "@/lib/siteUrl";
 
 // Filter only the 6 featured signatures
 const SIGNATURE_IDS = [
@@ -24,7 +25,7 @@ export function BestSellers() {
 
   const handleShareItem = async (item: MenuItem, e: React.MouseEvent) => {
     e.stopPropagation();
-    const url = "https://cheezybite.pk";
+    const url = typeof window !== "undefined" ? window.location.origin : SITE_URL;
     const text = `Check out ${item.name} at Cheezy Bite Kasur! 🧀 ${item.description} — Only Rs ${item.price}:`;
     
     if (navigator.share) {

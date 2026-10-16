@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Tag, Check, Users, ShoppingBag, Sparkles, Share2 } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
 import { DEALS, DealItem } from "@/data/menu";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export function DealsSection() {
   const { addItem, showToast } = useCartStore();
@@ -13,7 +14,7 @@ export function DealsSection() {
 
   const handleShareDeal = async (deal: DealItem, e: React.MouseEvent) => {
     e.stopPropagation();
-    const url = "https://cheezybite.pk/#deals";
+    const url = typeof window !== "undefined" ? `${window.location.origin}/#deals` : `${SITE_URL}/#deals`;
     const text = `Check out ${deal.title} at Cheezy Bite Kasur! 🔥 ${deal.description} — Only Rs ${deal.price}:`;
 
     if (navigator.share) {

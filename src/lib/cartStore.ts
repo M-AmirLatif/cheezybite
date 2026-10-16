@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { RESTAURANT_INFO } from "@/data/menu";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export interface CartItem {
   cartItemId: string;
@@ -196,7 +197,7 @@ export const useCartStore = create<CartStore>()(
           message += `*Customer Note:* Please share delivery address.\n\n`;
         }
 
-        message += `_Sent via Cheezy Bite Official Website: https://cheezybite.pk_ 🌟`;
+        message += `_Sent via Cheezy Bite Official Website: ${SITE_URL}_ 🌟`;
 
         return `https://wa.me/${RESTAURANT_INFO.whatsappNumber}?text=${encodeURIComponent(
           message
